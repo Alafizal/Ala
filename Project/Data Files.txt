@@ -1,0 +1,78 @@
+
+users.dat
+---------
+
+(ui) User ID		String		ala123
+(pw) Password		String		Family
+(nm) User Name		String 		Ala
+(ml) Mail		String		ala123@gmail.com
+(ty) User Type 		String		Regular/Admin
+(tm) Date and Time	String		08/03/23 09:16 PM 
+
+
+QPapers.dat
+------------
+
+(tn) Test Paper No.	String		1
+(co) Created On		Stirng		08/03/23
+(cb) Created By		String		Ala
+(tp) Topic		String		Python Basics
+(nq) No. of Questions	String		1
+
+Questions.dat
+--------------
+
+(tn) Test Paper No.	integer		1
+(qn) Question No.	integer		1
+(qe) Question		String 		Who Developed Python ?
+(o1) Option 1		String		a) Ala
+(o2) Option 2		String		b) Athira
+(o3) Option 3		String		c) Ruchita
+(o4) Option 4		String		d) Guido Van Rossum
+(aw) Answer		String		d
+
+
+Main menu.py
+-------------
+
+admin_menu() - reg_menu()
+	       question_menu()
+
+intro()
+register()
+reg_login()
+admin_menu()
+
+User.py
+--------
+
+create_admin()
+reg_login()
+
+register() 
+userlist()
+edit_user()
+remove_user()
+
+QuestionBank.py
+----------------
+
+inputtn(tn)
+printtn(rc)
+find_next_tn()
+find_next_qn(no)
+searchtn(op = '')
+update_qpaper_nq(no)
+create_topic()
+edit_topic()
+delete_topic()
+list_topic()
+
+
+
+create_qbank()
+printqn(rc)
+inputqn(qn)
+edit_Question()
+delete_question()
+list_question()

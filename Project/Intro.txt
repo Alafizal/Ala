@@ -1,0 +1,63 @@
+HELLO EVERYONE
+WELCOME TO ATHIRA'S QUIZ PROGRAM
+
+
+This program allows to test your knowledge in python programming.
+
+An USER IS expected to register first inorder to take a quiz program. 
+
+
+An Admin is a User who has the rights to use all options as well as prepare new quizes.
+
+the program has the following menu options 
+
+MAIN MENU
+
+1. Instructions
+2. Register
+3. Login
+4. Take a Test
+5. Score sheet
+6. Administrator
+7. Exit Program
+
+2. Register
+-------------
+
+New User Details...
+
+User type(Student/Admin): ....
+User ID : ....
+Password: ...
+Name    : ..
+Mail    : ..
+
+Add User(y/n): y
+
+User Added !
+
+QUESTION BANK
+--------------
+
+
+TEST PAPER NO. 1
+CREATED ON: ?
+Created By: ?
+
+
+Question 1
+
+?
+
+ 
+a) ?
+
+b) ?
+
+c) ?
+
+d) ?
+
+Save (y/n) : ?
+
+Cancel Question Paper(y/n) : 
