@@ -1,5 +1,7 @@
 import mysql.connector
-
+conn = mysql.connector.connect(host='localhost', user='root', passwd='alafizal')
+cursor = conn.cursor()
+cursor.execute("CREATE DATABASE users")
 def login():
     print("Login Page")
 
@@ -8,8 +10,7 @@ def login():
     password = input("Enter your password: ")
 
     # Check if the entered username and password match any record in the database
-    with mysql.connector.connect("CakeShopDB.db") as conn:
-        conn = mysql.connector.connect(host='local host', user='root', passwd='alafizal', database='users')
+    with mysql.connector.connect(host='localhost', user='root', passwd='alafizal', database='users') as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM users WHERE username=? AND password=?", (username, password))
         user = cursor.fetchone()
@@ -29,16 +30,17 @@ def sign_up():
     password = input("Enter your password: ")
 
     # Check if the username already exists
-    with mysql.connector.connect("CakeShopDB.db") as conn:
+    with mysql.connector.connect(host='localhost', user='root', passwd='alafizal', database='users') as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM users WHERE username=?", (username,))
         existing_user = cursor.fetchone()
 
-    if existing_user:
+    if existing_user:        
         print("Username already exists. Please choose a different one.")
+        
     else:
         # Save the new user data to the database
-        with mysql.connector.connect("CakeShopDB.db") as conn:
+        with mysql.connector.connect(host='localhost', user='root', passwd='alafizal', database='users') as conn:
             cursor = conn.cursor()
             cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
             conn.commit()
@@ -47,7 +49,7 @@ def sign_up():
 
 def view_cake_menu():
     print("\nCake Menu:")
-    with mysql.connector.connect("CakeShopDB.db") as conn:
+    with mysql.connector.connect(host='localhost', user='root', passwd='alafizal', database='users') as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT cake_id, cake_name FROM cakes")
         cakes = cursor.fetchall()
@@ -55,7 +57,7 @@ def view_cake_menu():
             print(f"{cake[0]}. {cake[1]}")
 
 def view_cake_details(cake_id):
-    with mysql.connector.connect("CakeShopDB.db") as conn:
+    with mysql.connector.connect(host='localhost', user='root', passwd='alafizal', database='users') as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM cakes WHERE cake_id=?", (cake_id,))
         cake_details = cursor.fetchone()
