@@ -25,7 +25,7 @@ def view_users():
     print("\nCurrent User List:")
     with open("Database.txt", "r") as file:
         for line in file:
-            username, _ = line.strip().split(',')
+            username = line.strip().split(',')
             print(username)
 def login():
     print("Login Page")
@@ -39,7 +39,8 @@ def login():
         for line in file:
             stored_username, stored_password = line.strip().split(',')
             if username == stored_username and password == stored_password:
-                print("Login successful!") 
+                print("Login successful!")
+            
                 main_menu()
 
     print("Invalid username or password. Please try again.")
@@ -60,8 +61,8 @@ def main_menu():
         print("Viewing.....")
         with open("Database.csv", "r") as f1:
              csvr=csv.reader(f1)
-             for i in csvr:
-                      print(','.join(i))
+             for i in csvr:                 
+                print(','.join(i))
              
     elif main_menu_choice == '2':
         print("Editing Settings...")
