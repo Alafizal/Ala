@@ -66,7 +66,46 @@ def main_menu():
              
     elif main_menu_choice == '2':
         print("Editing Settings...")
-        # Add settings editing functionality here
+        ie = int(input('Enter the cake ID: '))
+        print()
+        with open("Database.csv", "r") as f1:
+            data = []
+            c = 0
+            while True:
+                try:   
+                    csvr=csv.reader(f1)        
+                    for ln in csvr:
+                        if ln[0] == ie:
+                            c = 1
+                            print('Current Info...')
+                            print('Cake Name        :', ln[1])
+                            print('Price            :', ln[2])
+                            print('Ingredients      :', ln[3])
+                            print('Allergens Present:', ln[4])
+                            print('\n')
+                            print('Update Info...')
+                            cn = input('Cake Name: ')
+                            pr = int(input('Price: '))
+                            ig = input('Ingredients: ')
+                            ap = input('Allergens Present: ')
+                    data.append([ie, cn, pr, ig, ap])
+                except EOFError:
+                    break
+    
+        if c == 1:
+            print()
+            if input('Confirm Update(y/n): ').lower() == 'y':
+                fl = open('Database.csv', "w")
+                csvw = csv.writer(fl, delimiter = ',')
+                csvw.writerows(data)
+                print('Updated !')
+                fl.close()
+            else:
+                print('Updation Cancelled !')
+        
+        else:
+            print('Invalid Element')
+            
     elif main_menu_choice == '3':
         print("Logout successful!")
         #break
